@@ -1,17 +1,10 @@
-
-# coding: utf-8
-
-# In[1]:
-
+"""A quick program to find concordance matches with text data. Far better than the standard NLTK package"""
 import re
 import regex # Improved regular expression module that allows variable width lookahead and lookbehind
 import numpy as np
 import pandas as pd
 pd.options.display.max_colwidth = 5000
 pd.options.display.max_rows = 9999
-
-
-# In[10]:
 
 """https://stackoverflow.com/questions/23555995/can-you-do-regex-with-concordance
    This allows to get concordance results using regex searches instead of NLTK's terrible concordance function"""
@@ -50,10 +43,9 @@ class RegExConcordanceIndex(object):
             return concordance
         else:
             return "No matches"
+			
 
-
-# In[3]:
-
+"""Concordance checking with the chat data"""			
 ans = pd.DataFrame()
 filename = r'biggest'
 category = r'Social proof'
@@ -73,13 +65,10 @@ ans = ans.rename(index = str, columns = {0:'chatID',1:'concordance'})
 ans['pattern'] = pat_col
 ans['variations'] = var_col
 
-ans
-# ans.to_excel(r'C:\Users\Natarajan\Documents\Jupyter notebooks\Sears\Results\Results 061517\{}\{}.xlsx'.format(category,filename),
-#              index = False)
+ans.to_excel(r'C:\Users\Natarajan\Documents\Jupyter notebooks\Sears\Results\Results 061517\{}\{}.xlsx'.format(category,filename),
+             index = False)
 
-
-# In[11]:
-
+"""Concordance checking with a set of journals"""
 l = pd.Series()
 b = pd.DataFrame()
 filename = r'moderation'
@@ -107,11 +96,9 @@ for i in range(1,4):
 b = b.rename(columns = {0:'concordance'})
 b['pattern'] = pat_col
 b.to_excel(r'C:\Users\Natarajan\Documents\Jupyter notebooks\Sears\Results\Results 063017\{}.xlsx'.format(filename),index = False)
-b
 
 
-# In[82]:
-
+"""Concordance checking with another set of journals"""
 df = pd.read_table(r'C:\Users\Natarajan\Documents\Jupyter notebooks\Sears\Misc\Week 10\Jagdip_singh_raw_data2.txt',
                 encoding = 'utf-8',header = None,sep = '$',names = ['Tag','Value'])
 ab = df.loc[df['Tag'] == 'AB',:]
@@ -130,5 +117,3 @@ pat_list = [pat for i in range(len(res))]
 
 res['pattern'] = pat_list
 res.to_excel(r'C:\Users\Natarajan\Documents\Jupyter notebooks\Sears\Results\Results 071717\{}.xlsx'.format(filename),index = False)
-res
-
