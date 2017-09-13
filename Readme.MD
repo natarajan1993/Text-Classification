@@ -4,13 +4,14 @@ sales representatives and customers online. I achieved the goals using scikit-le
 because of an NDA. I pre-processed the text using Pandas and regular expressions. Then I used 4 different algorithms to compare 
 performance and in the end decided on logistic regression. The algorithms were Logistic Regression, Support Vector Machines, 
 Support Vector Machines with Stochastic Gradient Descent and Perceptron. The structure of the data used was:
+
 Protection Agreement bought? (0/1)		Order ID		Chat
 0/1										ID 1			LINE 1
 0/1										ID 1			LINE 2
 0/1										ID 1			LINE 3
-.
-.
-.
+
+
+
 Developed by:
    Natarajan Mahalingam
    2017 Crosby MBA emphasis in Analytics
